@@ -1,4 +1,4 @@
-package la.iok.northwestfeelings.daedal;
+package la.iok.northwestfeelings.daedal.activity.videochat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -19,6 +19,7 @@ import io.agora.rtc.Constants;
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
+import la.iok.northwestfeelings.daedal.R;
 
 public class VideoChatViewActivity extends AppCompatActivity {
 
