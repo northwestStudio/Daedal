@@ -42,4 +42,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this,RegisterAndLoginActivity.class);
         startActivity(intent);
     }
+    public void toVoicePractice(View view){
+        Intent intent=new Intent(MainActivity.this,RegisterAndLoginActivity.class);
+        startActivity(intent);
+    }
 }
