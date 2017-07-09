@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="la.iok.northwestfeelings.daedal">
 
+    <permission
+        android:name="la.iok.northwestfeelings.daedal.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -36,7 +40,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Required SDK 核心功能-->
+        <!-- Required SDK 核心功能 -->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
         <service
             android:name="cn.jpush.android.service.PushService"
@@ -50,13 +54,14 @@
             </intent-filter>
         </service>
 
-        <!-- Required SDK核心功能-->
+        <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+
                 <category android:name="la.iok.northwestfeelings.daedal" />
             </intent-filter>
             <intent-filter>
@@ -72,12 +77,12 @@
             </intent-filter>
         </receiver>
 
-        <!-- Required SDK核心功能-->
+        <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.android.service.AlarmReceiver"
             android:exported="false" />
 
-        <!-- Required JMessage SDK核心功能-->
+        <!-- Required JMessage SDK核心功能 -->
         <receiver
             android:name="cn.jpush.im.android.helpers.IMReceiver"
             android:enabled="true"
@@ -91,11 +96,11 @@
         </receiver>
 
         <!-- Required. For publish channel feature -->
-        <!-- JPUSH_CHANNEL 是为了方便开发者统计APK分发渠道。-->
+        <!-- JPUSH_CHANNEL 是为了方便开发者统计APK分发渠道。 -->
         <!-- 例如: -->
         <!-- 发到 Google Play 的APK可以设置为 google-play; -->
         <!-- 发到其他市场的 APK 可以设置为 xxx-market。 -->
-        <!-- 目前这个渠道统计功能的报表还未开放。-->
+        <!-- 目前这个渠道统计功能的报表还未开放。 -->
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="developer-default" />
@@ -104,13 +109,12 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="575eddbc495bb5161b8962ed" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="OTltoihooy67a41rqOCBirsGm6QQlTpc" />
 
         <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.videochat.VideoChatViewActivity"
@@ -121,67 +125,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
         </activity>
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:theme="@style/WelcomeStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity
-            android:name=".RegisterAndLoginActivity"
-            android:launchMode="singleTask"></activity>
-        <activity android:name=".activity.setting.RegisterActivity" />
-        <activity android:name=".activity.setting.SettingMainActivity" />
-        <activity
-            android:name=".activity.TypeActivity"
-            android:launchMode="singleTask" />
-        <activity android:name=".activity.setting.InfoActivity" />
-        <activity android:name=".activity.setting.AssertEqualsActivity" />
-        <activity android:name=".activity.setting.GetUserInfoActivity" />
-        <activity android:name=".activity.setting.UpdatePassword" />
-        <activity android:name=".activity.setting.UpdateUserInfoActivity" />
-        <activity android:name=".activity.createmessage.CreateMessageActivity" />
-        <activity android:name=".activity.createmessage.CreateSigTextMessageActivity" />
-        <activity android:name=".activity.groupinfo.GroupInfoActivity" />
-        <activity android:name=".activity.groupinfo.CreateGroupActivity" />
-        <activity android:name=".activity.groupinfo.GetGroupInfoActivity" />
-        <activity android:name=".activity.imagecontent.ImageContentActivity" />
-        <activity android:name=".activity.conversation.ConversationActivity" />
-        <activity android:name=".activity.groupinfo.AddRemoveGroupMemberActivity" />
-        <activity android:name=".activity.groupinfo.UpdateGroupInfoActivity" />
-        <activity android:name=".activity.groupinfo.ExitGroupActivity" />
-        <activity android:name=".activity.groupinfo.GetLocalGroupMembersActivity" />
-        <activity android:name=".activity.createmessage.CreateGroupTextMsgActivity" />
-        <activity android:name=".activity.createmessage.CreateSigCustomMsgActivity" />
-        <activity android:name=".activity.createmessage.CreateSigImageMessageActivity" />
-        <activity android:name=".activity.createmessage.ShowMessageActivity" />
-        <activity android:name=".activity.createmessage.CreateGroupImageMsgActivity" />
-        <activity android:name=".activity.createmessage.CreateSigVoiceMsgActivity" />
-        <activity android:name=".activity.createmessage.ShowCustomMessageActivity" />
-        <activity android:name=".activity.createmessage.CreateGroupCustomMsgActivity" />
-        <activity android:name=".activity.createmessage.CreateGroupVoiceMsgActivity" />
-        <activity android:name=".activity.notify.NotifyTypeActivity" />
-        <activity android:name=".activity.setting.GetBlackListActivity" />
-        <activity android:name=".activity.setting.AddRemoveBlackListActivity" />
-        <activity android:name=".activity.setting.UpdateUserAvatar" />
-        <activity android:name=".activity.notify.ShowGroupNotificationActivity" />
-        <activity android:name=".activity.imagecontent.CreateImageContentAsyncFile" />
-        <activity android:name=".activity.imagecontent.ShowDownloadPathActivity" />
-        <activity android:name=".activity.imagecontent.CreateImageContentAsyncBitmap" />
-        <activity android:name=".activity.messagecontent.SetGetStringExtraActivity" />
-        <activity android:name=".activity.messagecontent.SetGetNumberExtraActivity" />
-        <activity android:name=".activity.messagecontent.SetGetBooleanExtraActivity" />
-        <activity android:name=".activity.messagecontent.SetGetExtraActivity" />
-        <activity android:name=".activity.conversation.GetConversationInfoActivity" />
-        <activity android:name=".activity.conversation.OrderMessageActivity" />
-        <activity android:name=".activity.conversation.IsShowNotifySigActivity" />
-        <activity android:name=".activity.conversation.DeleteConversationActivity" />
-        <activity android:name=".activity.setting.NoDisturbListActivity" />
-        <activity android:name=".activity.setting.ShowLogoutReasonActivity" />
-        <activity android:name=".activity.createmessage.CreateSendFileActivity" />
-        <activity android:name=".activity.friend.FriendContactManager" />
-        <activity android:name=".activity.friend.AddFriendActivity" />
-        <activity android:name=".activity.friend.ShowFriendReasonActivity" />
-        <activity android:name=".activity.createmessage.CreateLocationMessageActivity" />
-        <activity android:name=".activity.groupinfo.BlockedGroupMsgActivity" />
-        <activity android:name=".activity.createmessage.ShowDownloadVoiceInfoActivity" />
-        <activity android:name=".activity.showinfo.ShowMyInfoUpdateActivity" />
-        <activity android:name=".activity.conversation.RetractMessageActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

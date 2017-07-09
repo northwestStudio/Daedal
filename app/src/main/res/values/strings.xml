@@ -16,4 +16,6 @@
     <string name="getStar">getStar: %1$s</string>
     <string name="getUserID">getUserID: %1$s</string>
     <string name="getSignature">getSignature: %1$s</string>
+    <string name="login">登录</string>
+
 </resources>

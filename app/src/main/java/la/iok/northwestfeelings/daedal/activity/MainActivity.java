@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import la.iok.northwestfeelings.daedal.R;
-import la.iok.northwestfeelings.daedal.RegisterAndLoginActivity;
 import la.iok.northwestfeelings.daedal.activity.videochat.VideoChatViewActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void toMessage(View view){
-        Intent intent=new Intent(MainActivity.this,RegisterAndLoginActivity.class);
-        startActivity(intent);
-    }
-    public void toVoicePractice(View view){
-        Intent intent=new Intent(MainActivity.this,RegisterAndLoginActivity.class);
-        startActivity(intent);
-    }
+//    public void toMessage(View view){
+//        Intent intent=new Intent(MainActivity.this,RegisterAndLoginActivity.class);
+//        startActivity(intent);
+//    }
+//    public void toVoicePractice(View view){
+//        Intent intent=new Intent(MainActivity.this,RegisterAndLoginActivity.class);
+//        startActivity(intent);
+//    }
 }
